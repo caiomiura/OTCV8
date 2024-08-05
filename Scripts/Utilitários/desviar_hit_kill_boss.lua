@@ -1,4 +1,4 @@
-macro(1000, "BOLINHA DO CAPETA", function()
+macro(1000, "DESVIA HITKILL", function()
     local targetEffectIDs = {1929, 1494, 1664, 1684} -- Lista de possíveis IDs de efeitos
     local validPositions = {} -- Lista de posições sem os efeitos
     local playerPos = player:getPosition()
