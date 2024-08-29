@@ -1,9 +1,18 @@
-macro(200, "Use SD Rune", function()
-    if g_game.isAttacking() then
-        currentEnemy = g_game.getAttackingCreature()
-    end
-    if currentEnemy and g_game.isAttacking(currentEnemy) then
-        usewith(storage.atkItem, currentEnemy)
+local currentEnemy
+
+macro(200, "Test Rune", function()
+    local isAttacking = g_game.isAttacking()
+    
+    if isAttacking then
+        local newEnemy = g_game.getAttackingCreature()
+        
+        if newEnemy ~= currentEnemy then
+            currentEnemy = newEnemy
+        end
+        
+        if currentEnemy then
+            usewith(storage.atkItem, currentEnemy)
+        end
     end
 end)
 
