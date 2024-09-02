@@ -4,9 +4,12 @@ local hpparar = 30 -- porcentagem de vida que vai desativar
 local hpvoltar = 90 -- porcentagem de vida que vai ativar
 
 macro(10, "Stop cavebot % mana e vida", function()
-     if (manapercent() <= mnparar or hppercent() <= hpparar) then
+    local manaPercent = manapercent()
+    local hpPercent = hppercent()
+
+    if (manaPercent <= mnparar or hpPercent <= hpparar) and CaveBot.isOn() then
         CaveBot.setOff()
-    elseif (manapercent() >= mnvoltar and hppercent() >= hpvoltar) then
+    elseif (manaPercent >= mnvoltar and hpPercent >= hpvoltar) and not CaveBot.isOn() then
         CaveBot.setOn()
     end
 end)
